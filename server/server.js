@@ -17,6 +17,16 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/index.html"));
 });
 
+app.get("/", (req, res) => {
+  let randomNum = Math.floor(Math.random() * 10);
+  if (randomNum % 2 === 0) {
+    rollbar.info("randomNum is even");
+  } else {
+    rollbar.info("randomNum is odd");
+  }
+  res.sendStatus(200);
+});
+
 rollbar.log("Hello world!");
 
 const port = process.env.PORT || 5050;
