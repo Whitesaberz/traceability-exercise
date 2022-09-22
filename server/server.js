@@ -6,7 +6,6 @@ const cors = require("cors");
 app.use(express.json());
 app.use(cors());
 
-// include and initialize the rollbar library with your access token
 var Rollbar = require("rollbar");
 var rollbar = new Rollbar({
   accessToken: "0cbee336eefa483e91484195b2d4591c",
@@ -14,5 +13,8 @@ var rollbar = new Rollbar({
   captureUnhandledRejections: true,
 });
 
-// record a generic message and send it to Rollbar
 rollbar.log("Hello world!");
+
+const port = process.env.PORT || 5050;
+
+app.listen(port, () => console.log(`Server listening on ${port}`));
