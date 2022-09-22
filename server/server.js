@@ -14,7 +14,7 @@ var rollbar = new Rollbar({
 });
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "/client/index.html"));
+  res.sendFile(path.join(__dirname, "../client/index.html"));
 });
 
 rollbar.log("Hello world!");
